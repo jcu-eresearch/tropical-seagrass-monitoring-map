@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <style>
+      #map-canvas {
+        width: 100%;
+        height: 300px;
+        margin: 0;
+        padding: 0;
+      }
+      .labels {
+          font-family: Arial, sans-serif;
+          font-size: 12px;
+          text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.85), -1px 1px 1px rgba(255, 255, 255, 0.85), 1px -1px 1px rgba(255, 255, 255, 0.85), -1px -1px 1px rgba(255, 255, 255, 0.85);
+          white-space: nowrap;
+      }
+      .legend {
+          width: 100px;
+          background-color: white;
+          background-color: rgba(255,255,255,0.5);
+          border-radius: 0.5em;
+          margin: 1em;
+          padding: 0.5em;
+          index: 1;
+      }
+      .legend img {
+          max-width: 100%;
+      }
+      .gm-style-iw {
+          min-height: 200px;
+      }
+      .gm-style-iw .image {
+          text-align: center;
+      }
+      .gm-style-iw img {
+          max-width: 100%;
+          max-height: 150px;
+      }
+      @media only screen and (min-height : 768px) {
+          #map-canvas {
+              height: 600px;
+          }
+      }
+      @media only screen and (min-width: 768px) {
+          .legend {
+              width: 200px;
+          }
+      }
+
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script src="markerwithlabel_packed.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+var map;
+function initialize() {
+
+  /* Add additional map data here. Data should be entered as JavaScript
+   * mapping objects with the same structure. Ensure the final {} mapping
+   * does NOT have a trailing comma and final elements inside mappings
+   * do NOT have trailing commas either.
+   */
+  var mapData = [
+
+     {
+       lat: -16.855,
+       lng: 145.746,
+       icon: 'http://research.jcu.edu.au/portfolio/resources/jcu.profiles/script/marker-icon-size-5.png',
+       title: 'Cairns Port',
+       image: 'http://www.harbourlights.com.au/assets/cache/sea_lpage_content800x600.jpg',
+       description: 'In partnership with James Cook University...'
+     },
+     {
+       lat: -12.528,
+       lng: 141.839,
+       icon: 'http://research.jcu.edu.au/portfolio/resources/jcu.profiles/script/marker-icon-size-1.png',
+       title: 'Weipa',
+       description: 'Seagrasses have been monitored...'
+     },
+     {
+       lat: -10.580,
+       lng: 142.218,
+       icon: '',
+       title: 'Thursday Island',
+       description: 'Due to the high reliance on fishing...'
+     },
+     {
+       lat: -17.478,
+       lng: 140.841,
+       icon: '',
+       title: 'Karumba',
+       description: 'Since 2000, a long-term seagrass...'
+     }
+  ];
+
+
+  // Avoid adjusting map settings below.
+  var mapOptions = {
+    backgroundColor: 'white',
+    center: new google.maps.LatLng(-19.739091, 144.045868),
+    mapTypeId: google.maps.MapTypeId.HYBRID,
+    mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+    maxZoom: 8,
+    minZoom: 4,
+    panControl: false,
+    rotateControl: false,
+    streetViewControl: false,
+    tilt: 0,
+    zoom: 5,
+    zoomControlOptions: {
+        position: google.maps.ControlPosition.TOP_RIGHT,
+        style: google.maps.ZoomControlStyle.LARGE
+    }
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+  map.data.loadGeoJson('map.geojson');
+  map.data.setStyle(function(feature){
+      
+     return {
+        icon: feature.getProperty('icon'),
+        title: feature.getProperty('title')
+     };
+
+  });
+
+
+  var infowindow = new google.maps.InfoWindow();
+  mapData.forEach(function(item) {
+    var marker = new MarkerWithLabel({
+        map: map,
+        position: new google.maps.LatLng(item.lat, item.lng),
+        icon: item.icon,
+        title: item.title,
+        labelContent: item.title,
+        labelAnchor: new google.maps.Point(-20, 25),
+        labelClass: 'labels'
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+        image = '';
+        if (item.image) {
+            image = '<p class="image"><img src="' + item.image + '" /></p>';
+        }
+        infowindow.setContent('<h2>' + item.title + '</h2>' + image + item.description);
+        infowindow.open(map, marker);
+        // Return to original map centring
+        var original_centre = map.getCenter()
+        google.maps.event.addListener(infowindow, 'closeclick', function() {
+            map.setCenter(original_centre);
+        });
+    });
+  });
+
+  var legendDiv = document.createElement('div');
+  legendDiv.className = 'legend';
+  var legendImage = document.createElement('img');
+  legendImage.src = 'http://research.jcu.edu.au/eresearch/media/legend.png';
+  legendDiv.appendChild(legendImage);
+  map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(legendDiv);
+
+  var strictBounds = new google.maps.LatLngBounds(
+      new google.maps.LatLng(-44.847430, 120.444497),
+      new google.maps.LatLng(-7.361558, 157.729654)
+  );
+  google.maps.event.addListener(map, 'center_changed', function() {
+     if (strictBounds.contains(map.getCenter())) return;
+     var c = map.getCenter(),
+         x = c.lng(),
+         y = c.lat(),
+         maxX = strictBounds.getNorthEast().lng(),
+         maxY = strictBounds.getNorthEast().lat(),
+         minX = strictBounds.getSouthWest().lng(),
+         minY = strictBounds.getSouthWest().lat();
+ 
+     if (x < minX) x = minX;
+     if (x > maxX) x = maxX;
+     if (y < minY) y = minY;
+     if (y > maxY) y = maxY;
+ 
+     map.setCenter(new google.maps.LatLng(y, x));
+   });
+
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+    <div id="map-canvas"></div>
+  </body>
+</html>
