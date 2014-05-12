@@ -120,6 +120,7 @@
       #map-canvas {
         width: 100%;
         height: 280px;
+        height: 700px\9;
         margin: 0;
         padding: 0;
       }
@@ -128,9 +129,12 @@
           font-size: 12px;
           text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.85), -1px 1px 1px rgba(255, 255, 255, 0.85), 1px -1px 1px rgba(255, 255, 255, 0.85), -1px -1px 1px rgba(255, 255, 255, 0.85);
           white-space: nowrap;
+          background-color: white\9;
+          padding: 0.2em\9;
       }
       .markers, .legend {
           width: 80px;
+          width: 200px\9;
           background-color: white;
           background-color: rgba(255,255,255,0.7);
           border-radius: 0.5em;
@@ -140,6 +144,7 @@
       }
       .markers {
           max-height: 120px;
+          max-height: 500px\9;
           overflow: hidden;
           overflow-y: auto;
           max-height: 60%;
@@ -172,13 +177,16 @@
           cursor: pointer;
       }
       .legend {
-          max-height: 15%;
+          height: 15%;
+          max-height: 100px;
+          text-align: center;
+          overflow: auto;
       }
       .legend img {
-          max-width: 100%;
-          max-height: 90%;
+          max-height: 100%;
       }
       .gm-style-iw {
+          min-width: 200px;
           max-width: 300px;
           min-height: 100px;
       }
@@ -221,20 +229,6 @@
           }
       }
     </style>
-    <!--[if lte IE 8]>
-    <style type="text/css">
-    #map-canvas {
-        height: 700px;
-    }
-    .markers {
-        max-height: 500px;
-    }
-    .labels {
-        background: white;
-        padding: 0.2em;
-    }
-    </style>
-    <![endif]-->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script src="markerwithlabel_packed.js" type="text/javascript" charset="utf-8"></script>
     <script src="map.js" type="text/javascript" charset="utf-8"></script>
