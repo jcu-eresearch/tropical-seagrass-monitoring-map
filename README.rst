@@ -22,3 +22,9 @@ Updating the resources
 
     wget https://google-maps-utility-library-v3.googlecode.com/svn/tags/markerwithlabel/1.1.9/markerwithlabel/src/markerwithlabel_packed.js -O markerwithlabel_packed.js
 
+References
+==========
+
+* Original map:
+  https://mapsengine.google.com/map/embed?mid=zeYkPvVAcWLw.k_UR9bEP75n0
+* https://developers.google.com/maps/documentation/javascript/reference
