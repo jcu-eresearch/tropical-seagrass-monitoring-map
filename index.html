@@ -150,6 +150,9 @@ var mapData = [
     }
     .markers h2 {
         font-size: 95%;
+        color: black;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
         margin: 0;
     }
     .markers img {
@@ -160,9 +163,9 @@ var mapData = [
         margin-right: 0.5em; 
     }
     .markers ul {
-        margin: 0.2em 0;
+        margin: 0.2em 0 !important;
         padding: 0;
-        list-style: none;
+        list-style: none outside none !important;
     }
     .markers li {
         border-radius: 0.5em;
@@ -219,9 +222,6 @@ var mapData = [
     @media only screen and (min-height : 768px) {
         #map-canvas {
             height: 700px;
-        }
-        .markers li {
-            padding: 0.25em;
         }
     }
     @media only screen and (min-width: 768px) {
