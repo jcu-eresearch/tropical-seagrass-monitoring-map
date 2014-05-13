@@ -2,236 +2,241 @@
 <html>
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Simple Map</title>
+    <title>TropWater Seagrass Monitoring Map</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
   </head>
   <body>
-    <script type="text/javascript">
-  /* Add additional map data here. Data should be entered as JavaScript
-   * mapping objects with the same structure. Ensure the final {} mapping
-   * does NOT have a trailing comma and final elements inside mappings
-   * do NOT have trailing commas either.
-   */
-    var mapData = [
+<script type="text/javascript">
+/* Add additional map data here. Data should be entered as JavaScript
+* mapping objects with the same structure. Ensure the final {} mapping
+* does NOT have a trailing comma and final elements inside mappings
+* do NOT have trailing commas either.
+*/
+var mapData = [
     {
         "category": "Long term monitoring", 
         "lat": "-17.487695", 
         "lng": "140.835443", 
-        "icon": "green.png", 
-        "description": "Test description with <b>HTML</b> content.",
+        "icon": "marker-green.png", 
+        "description": '<img src="http://eresearch.jcu.edu.au/globallogo.png" /><br>Test description with <b>HTML</b> content.',
         "title": "Karumba"
     }, 
     {
         "category": "Long term monitoring", 
         "lat": "-12.67009", 
         "lng": "141.870015", 
-        "icon": "green.png", 
+        "icon": "marker-green.png", 
         "title": "Weipa"
     }, 
     {
         "category": "Long term monitoring", 
         "lat": "-10.584302", 
         "lng": "142.220672", 
-        "icon": "green.png", 
+        "icon": "marker-green.png", 
         "title": "Thursday Island"
     }, 
     {
         "category": "Long term monitoring", 
         "lat": "-16.929285", 
         "lng": "145.779816", 
-        "icon": "red.png", 
+        "icon": "marker-red.png", 
         "title": "Cairns"
     }, 
     {
         "category": "Long term monitoring", 
         "lat": "-17.599216", 
         "lng": "146.123187", 
-        "icon": "red.png", 
+        "icon": "marker-red.png", 
         "title": "Mourilyan Harbour"
     }, 
     {
         "category": "Long term monitoring", 
         "lat": "-19.246", 
         "lng": "146.837553", 
-        "icon": "grey.png", 
+        "icon": "marker-grey.png", 
         "title": "Townsville"
     }, 
     {
         "category": "Long term monitoring", 
         "lat": "-19.890833", 
         "lng": "148.07728", 
-        "icon": "grey.png", 
+        "icon": "marker-grey.png", 
         "title": "Abbot Point"
     }, 
     {
         "category": "Long term monitoring", 
         "lat": "-21.275898", 
         "lng": "149.29214", 
-        "icon": "grey.png", 
+        "icon": "marker-grey.png", 
         "title": "Hay Point"
     }, 
     {
         "category": "Long term monitoring", 
         "lat": "-23.819581", 
         "lng": "151.234503", 
-        "icon": "grey.png", 
+        "icon": "marker-grey.png", 
         "title": "Gladstone"
     }, 
     {
         "category": "Baseline monitoring", 
         "lat": "-12.022145", 
         "lng": "141.905028", 
-        "icon": "blue.png", 
+        "icon": "marker-blue.png", 
         "title": "Port Musgrave"
     }, 
     {
         "category": "Baseline monitoring", 
         "lat": "-11.758394", 
         "lng": "142.069942", 
-        "icon": "blue.png", 
+        "icon": "marker-blue.png", 
         "title": "Skardon River"
     }, 
     {
         "category": "Baseline monitoring", 
         "lat": "-14.982107", 
         "lng": "145.34722", 
-        "icon": "blue.png", 
+        "icon": "marker-blue.png", 
         "title": "Cape Flattery"
     }, 
     {
         "category": "Baseline monitoring", 
         "lat": "-18.525638", 
         "lng": "146.331105", 
-        "icon": "blue.png", 
+        "icon": "marker-blue.png", 
         "title": "Lucinda"
     }, 
     {
         "category": "Baseline monitoring", 
         "lat": "-21.105981", 
         "lng": "149.221804", 
-        "icon": "blue.png", 
+        "icon": "marker-blue.png", 
         "title": "Mackay"
     }
 ];
-
-    </script>
-    <style type="text/css">
-      #map-canvas {
-        width: 100%;
-        height: 280px;
-        height: 700px\9;
+</script>
+<style type="text/css">
+    #map-canvas {
+    width: 100%;
+    height: 280px;
+    height: 700px\9;
+    margin: 0;
+    padding: 0;
+    }
+    .labels {
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.85), -1px 1px 1px rgba(255, 255, 255, 0.85), 1px -1px 1px rgba(255, 255, 255, 0.85), -1px -1px 1px rgba(255, 255, 255, 0.85);
+        white-space: nowrap;
+        background-color: white\9;
+        padding: 0.2em\9;
+    }
+    .markers, .legend {
+        width: 80px;
+        width: 200px\9;
+        background-color: white;
+        background-color: rgba(255,255,255,0.7);
+        border-radius: 0.5em;
+        margin: 1em;
+        padding: 0.5em;
+        index: 1;
+    }
+    .markers {
+        max-height: 120px;
+        max-height: 500px\9;
+        overflow: hidden;
+        overflow-y: auto;
+        max-height: 60%;
+    }
+    .markers h2 {
+        font-size: 95%;
         margin: 0;
+    }
+    .markers img {
+        vertical-align: middle;
+        max-height: 20px;
+        width: auto;
+        height: auto;
+        margin-right: 0.5em; 
+    }
+    .markers ul {
+        margin: 0.2em 0;
         padding: 0;
-      }
-      .labels {
-          font-family: Arial, sans-serif;
-          font-size: 12px;
-          text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.85), -1px 1px 1px rgba(255, 255, 255, 0.85), 1px -1px 1px rgba(255, 255, 255, 0.85), -1px -1px 1px rgba(255, 255, 255, 0.85);
-          white-space: nowrap;
-          background-color: white\9;
-          padding: 0.2em\9;
-      }
-      .markers, .legend {
-          width: 80px;
-          width: 200px\9;
-          background-color: white;
-          background-color: rgba(255,255,255,0.7);
-          border-radius: 0.5em;
-          margin: 1em;
-          padding: 0.5em;
-          index: 1;
-      }
-      .markers {
-          max-height: 120px;
-          max-height: 500px\9;
-          overflow: hidden;
-          overflow-y: auto;
-          max-height: 60%;
-      }
-      .markers h2 {
-          font-size: 95%;
-          margin: 0;
-      }
-      .markers img {
-          vertical-align: middle;
-          max-height: 16px;
-          margin-right: 0.5em; 
-      }
-      .markers ul {
-          margin: 0.2em 0;
-          padding: 0;
-          list-style: none;
-      }
-      .markers li {
-          border-radius: 0.5em;
-          -webkit-touch-callout: none;
-          -webkit-user-select: none;
-          -khtml-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
-      }
-      .markers li:hover {
-          background-color: #aaa;
-          cursor: pointer;
-      }
-      .legend {
-          height: 15%;
-          max-height: 100px;
-          text-align: center;
-          overflow: auto;
-      }
-      .legend img {
-          max-height: 100%;
-      }
-      .gm-style-iw {
-          min-width: 200px;
-          max-width: 300px;
-          min-height: 100px;
-      }
-      .gm-style-iw .image {
-          text-align: center;
-      }
-      .gm-style-iw img {
-          max-width: 100%;
-          max-height: 150px;
-      }
-      @media only screen and (max-height : 320px) or (min-width : 240px) {
-          .markers, .gm-style .gm-style-iw {
-              font-size: 70%;
-          }
-          .gm-style-iw h2, .gm-style-iw img {
-              display: none;
-          }
-      }
-      @media only screen and (min-height : 420px) and (max-height : 639px) {
-          #map-canvas {
-              height: 360px;
-          }
-      }
-      @media only screen and (min-height : 640px) and (max-height : 767px) {
-          #map-canvas {
-              height: 500px;
-          }
-      }
-      @media only screen and (min-height : 768px) {
-          #map-canvas {
-              height: 700px;
-          }
-          .markers li {
-              padding: 0.25em;
-          }
-      }
-      @media only screen and (min-width: 768px) {
-          .markers, .legend {
-              width: 200px;
-          }
-      }
-    </style>
+        list-style: none;
+    }
+    .markers li {
+        border-radius: 0.5em;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .markers li:hover {
+        background-color: #aaa;
+        cursor: pointer;
+    }
+    .legend {
+        height: 15%;
+        max-height: 100px;
+        text-align: center;
+    }
+    .legend img {
+        max-height: 95%;
+        width: auto;
+        height: auto;
+    }
+    .gm-style-iw {
+        min-width: 200px;
+        max-width: 300px;
+        min-height: 200px;
+    }
+    .gm-style-iw img {
+        max-width: 100%;
+        max-height: 150px;
+        width: auto;
+        height: auto;
+    }
+    @media only screen and (max-height : 320px) or (min-width : 240px) {
+        .markers, .gm-style .gm-style-iw {
+            font-size: 70%;
+        }
+        /*.gm-style-iw h2 {
+            display: none;
+        }*/
+    }
+    @media only screen and (min-height : 420px) and (max-height : 639px) {
+        #map-canvas {
+            height: 360px;
+        }
+    }
+    @media only screen and (min-height : 640px) and (max-height : 767px) {
+        #map-canvas {
+            height: 500px;
+        }
+    }
+    @media only screen and (min-height : 768px) {
+        #map-canvas {
+            height: 700px;
+        }
+        .markers li {
+            padding: 0.25em;
+        }
+    }
+    @media only screen and (min-width: 768px) {
+        .markers, .legend {
+            width: 200px;
+        }
+    }
+</style>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script src="map.min.js" type="text/javascript" charset="utf-8"></script>
+    <!-- For non-minified map configuration, use the following:
     <script src="markerwithlabel_packed.js" type="text/javascript" charset="utf-8"></script>
     <script src="map.js" type="text/javascript" charset="utf-8"></script>
+    -->
     <div id="map-canvas"></div>
+
   </body>
 </html>
