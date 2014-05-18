@@ -27,29 +27,30 @@ var map;
 function initialize() {
     "use strict";
 
+    var map_canvas = document.getElementById('map-canvas');
+
     var infowindow = new google.maps.InfoWindow(),
         markers = {},
         category,
         mapOptions = {
-            backgroundColor: 'white',
-            center: new google.maps.LatLng(-19.739091, 144.045868),
-            mapTypeId: google.maps.MapTypeId.HYBRID,
+            backgroundColor: map_canvas.getAttribute('data-background-color') || "white",
+            center: new google.maps.LatLng(parseFloat(map_canvas.getAttribute('data-center-lat')) || 0, parseFloat(map_canvas.getAttribute('data-center-lng')) || 0),
+            mapTypeId: map_canvas.getAttribute('data-map-type-id') || "hybrid",
             mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
-            maxZoom: 8,
-            minZoom: 4,
+            maxZoom: parseInt(map_canvas.getAttribute('data-max-zoom')) || 8,
+            minZoom: parseInt(map_canvas.getAttribute('data-min-zoom')) || 4,
             panControl: false,
             rotateControl: false,
             streetViewControl: false,
             tilt: 0,
-            zoom: 5,
+            zoom: parseInt(map_canvas.getAttribute('data-zoom')) || 5,
             zoomControlOptions: {
                 position: google.maps.ControlPosition.TOP_RIGHT,
                 style: google.maps.ZoomControlStyle.LARGE
             }
         };
 
-    map = new google.maps.Map(document.getElementById('map-canvas'),
-          mapOptions);
+    map = new google.maps.Map(map_canvas, mapOptions);
 
     mapData.forEach(function(item) {
         var marker = new MarkerWithLabel({

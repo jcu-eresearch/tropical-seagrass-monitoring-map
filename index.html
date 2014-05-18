@@ -115,131 +115,13 @@ var mapData = [
     }
 ];
 </script>
-<style type="text/css">
-    #map-canvas {
-    width: 100%;
-    height: 280px;
-    height: 700px\9;
-    margin: 0;
-    padding: 0;
-    }
-    .labels {
-        font-family: Arial, sans-serif;
-        font-size: 12px;
-        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.85), -1px 1px 1px rgba(255, 255, 255, 0.85), 1px -1px 1px rgba(255, 255, 255, 0.85), -1px -1px 1px rgba(255, 255, 255, 0.85);
-        white-space: nowrap;
-        background-color: white\9;
-        padding: 0.2em\9;
-    }
-    .markers, .legend {
-        width: 80px;
-        width: 200px\9;
-        background-color: white;
-        background-color: rgba(255,255,255,0.7);
-        border-radius: 0.5em;
-        margin: 1em;
-        padding: 0.5em;
-        index: 1;
-    }
-    .markers {
-        max-height: 120px;
-        max-height: 500px\9;
-        overflow: hidden;
-        overflow-y: auto;
-        max-height: 60%;
-    }
-    .markers h2 {
-        font-size: 95%;
-        color: black;
-        font-weight: bold;
-        font-family: Arial, sans-serif;
-        margin: 0;
-    }
-    .markers img {
-        vertical-align: middle;
-        max-height: 20px;
-        width: auto;
-        height: auto;
-        margin-right: 0.5em; 
-    }
-    .markers ul {
-        margin: 0.2em 0 !important;
-        padding: 0;
-        list-style: none outside none !important;
-    }
-    .markers li {
-        border-radius: 0.5em;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-    .markers li:hover {
-        background-color: #aaa;
-        cursor: pointer;
-    }
-    .legend {
-        height: 15%;
-        max-height: 100px;
-        text-align: center;
-    }
-    .legend img {
-        max-height: 95%;
-        width: auto;
-        height: auto;
-    }
-    .gm-style-iw {
-        min-width: 200px;
-        max-width: 300px;
-        min-height: 200px;
-    }
-    .gm-style-iw img {
-        max-width: 100%;
-        max-height: 150px;
-        width: auto;
-        height: auto;
-    }
-    @media only screen and (max-height : 320px) or (min-width : 240px) {
-        .markers, .gm-style .gm-style-iw {
-            font-size: 70%;
-        }
-        /*.gm-style-iw h2 {
-            display: none;
-        }*/
-    }
-    @media only screen and (min-height : 420px) and (max-height : 639px) {
-        #map-canvas {
-            height: 360px;
-        }
-    }
-    @media only screen and (min-height : 640px) and (max-height : 767px) {
-        #map-canvas {
-            height: 500px;
-        }
-    }
-    @media only screen and (min-height : 768px) {
-        #map-canvas {
-            height: 700px;
-        }
-        .markers h2 {
-            font-size: 1.3em;
-        }
-    }
-    @media only screen and (min-width: 768px) {
-        .markers, .legend {
-            width: 200px;
-        }
-    }
-</style>
+    <link rel="stylesheet" href="map.css" type="text/css" media="screen" charset="utf-8" />
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-    <script src="map.min.js" type="text/javascript" charset="utf-8"></script>
-    <!-- For non-minified map configuration, use the following:
     <script src="markerwithlabel_packed.js" type="text/javascript" charset="utf-8"></script>
     <script src="map.js" type="text/javascript" charset="utf-8"></script>
-    -->
-    <div id="map-canvas"></div>
-
+    <div id="map-canvas"
+         data-map-type-id="satellite" data-min-zoom="4" data-max-zoom="8" data-zoom="5"
+         data-background-color="white" data-center-lat="-19.739091" data-center-lng="144.045868"
+    ></div>
   </body>
 </html>
