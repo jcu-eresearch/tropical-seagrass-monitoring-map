@@ -1,6 +1,13 @@
 Updating the resources
 ======================
 
+To minify Javascript, CSS and produce a suitable HTML file, for reducing network latency::
+
+    npm install
+    grunt
+
+For modification, see all resources in the ``src`` directory.
+
 
 * Markers and legend imagery: replace the relevant image files in this same
   directory.
@@ -13,14 +20,11 @@ Updating the resources
   + Arbitrary HTML can be inserted into the description field. Take care to
     either replace or espace HTML that includes the wrapping string character.
 
-* Minify Javascript for reducing network latency::
-
-    cat markerwithlabel_packed.js map.js > map_joined.js
-    uglifyjs map_joined.js > map.min.js
-
 * Update Javascript resources::
 
     wget https://google-maps-utility-library-v3.googlecode.com/svn/tags/markerwithlabel/1.1.9/markerwithlabel/src/markerwithlabel_packed.js -O markerwithlabel_packed.js
+    grunt
+
 
 References
 ==========

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>TropWater Seagrass Monitoring Map</title>
+    <title>Queensland Ports Seagrass Program Sites</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
   </head>
@@ -18,7 +18,7 @@ var mapData = [
         "category": "Long term monitoring", 
         "lat": "-17.487695", 
         "lng": "140.835443", 
-        "icon": "marker-green.png", 
+        "icon": "images/marker-green.png", 
         "description": '<img src="http://eresearch.jcu.edu.au/globallogo.png" /><br>Test description with <b>HTML</b> content.',
         "title": "Karumba"
     }, 
@@ -26,102 +26,108 @@ var mapData = [
         "category": "Long term monitoring", 
         "lat": "-12.67009", 
         "lng": "141.870015", 
-        "icon": "marker-green.png", 
+        "icon": "images/marker-green.png", 
         "title": "Weipa"
     }, 
     {
         "category": "Long term monitoring", 
         "lat": "-10.584302", 
         "lng": "142.220672", 
-        "icon": "marker-green.png", 
+        "icon": "images/marker-green.png", 
         "title": "Thursday Island"
     }, 
     {
         "category": "Long term monitoring", 
         "lat": "-16.929285", 
         "lng": "145.779816", 
-        "icon": "marker-red.png", 
+        "icon": "images/marker-red.png", 
         "title": "Cairns"
     }, 
     {
         "category": "Long term monitoring", 
         "lat": "-17.599216", 
         "lng": "146.123187", 
-        "icon": "marker-red.png", 
+        "icon": "images/marker-red.png", 
         "title": "Mourilyan Harbour"
     }, 
     {
         "category": "Long term monitoring", 
         "lat": "-19.246", 
         "lng": "146.837553", 
-        "icon": "marker-grey.png", 
+        "icon": "images/marker-grey.png", 
         "title": "Townsville"
     }, 
     {
         "category": "Long term monitoring", 
         "lat": "-19.890833", 
         "lng": "148.07728", 
-        "icon": "marker-grey.png", 
+        "icon": "images/marker-grey.png", 
         "title": "Abbot Point"
     }, 
     {
         "category": "Long term monitoring", 
         "lat": "-21.275898", 
         "lng": "149.29214", 
-        "icon": "marker-grey.png", 
+        "icon": "images/marker-grey.png", 
         "title": "Hay Point"
     }, 
     {
         "category": "Long term monitoring", 
         "lat": "-23.819581", 
         "lng": "151.234503", 
-        "icon": "marker-grey.png", 
+        "icon": "images/marker-grey.png", 
         "title": "Gladstone"
     }, 
     {
         "category": "Baseline monitoring", 
         "lat": "-12.022145", 
         "lng": "141.905028", 
-        "icon": "marker-blue.png", 
+        "icon": "images/marker-blue.png", 
         "title": "Port Musgrave"
     }, 
     {
         "category": "Baseline monitoring", 
         "lat": "-11.758394", 
         "lng": "142.069942", 
-        "icon": "marker-blue.png", 
+        "icon": "images/marker-blue.png", 
         "title": "Skardon River"
     }, 
     {
         "category": "Baseline monitoring", 
         "lat": "-14.982107", 
         "lng": "145.34722", 
-        "icon": "marker-blue.png", 
+        "icon": "images/marker-blue.png", 
         "title": "Cape Flattery"
     }, 
     {
         "category": "Baseline monitoring", 
         "lat": "-18.525638", 
         "lng": "146.331105", 
-        "icon": "marker-blue.png", 
+        "icon": "images/marker-blue.png", 
         "title": "Lucinda"
     }, 
     {
         "category": "Baseline monitoring", 
         "lat": "-21.105981", 
         "lng": "149.221804", 
-        "icon": "marker-blue.png", 
+        "icon": "images/marker-blue.png", 
         "title": "Mackay"
     }
 ];
 </script>
+    <!-- build:css map.min.css -->
     <link rel="stylesheet" href="map.css" type="text/css" media="screen" charset="utf-8" />
+    <!-- endbuild -->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-    <script src="markerwithlabel_packed.js" type="text/javascript" charset="utf-8"></script>
+    <!-- build:js map.min.js -->
+    <script src="markerwithlabel.js" type="text/javascript" charset="utf-8"></script>
     <script src="map.js" type="text/javascript" charset="utf-8"></script>
+    <!-- endbuild -->
+
     <div id="map-canvas"
          data-map-type-id="satellite" data-min-zoom="4" data-max-zoom="8" data-zoom="5"
          data-background-color="white" data-center-lat="-19.739091" data-center-lng="144.045868"
+         data-legend-src="images/legend.png"
     ></div>
   </body>
 </html>

@@ -120,7 +120,7 @@ function initialize() {
     var legendDiv = document.createElement('div');
     legendDiv.className = 'legend';
     var legendImage = document.createElement('img');
-    legendImage.src = 'legend.png';
+    legendImage.src = map_canvas.getAttribute('data-legend-src') || 'legend.png';
     legendDiv.appendChild(legendImage);
     map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(legendDiv);
 

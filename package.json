@@ -1,0 +1,28 @@
+{
+  "name": "tropwater-seagrass",
+  "version": "0.1.0",
+  "description": "Seagrass monitoring map for TropWater",
+  "main": "map.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jcu-eresearch/app-configuration.git"
+  },
+  "author": "David Beitey",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-concat": "~0.4.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-cssmin": "~0.9.0",
+    "grunt-usemin": "~2.1.1",
+    "grunt-filerev": "~0.2.1",
+    "grunt-rev": "~0.1.0",
+    "grunt-contrib-clean": "~0.5.0"
+  }
+}
