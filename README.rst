@@ -1,13 +1,19 @@
 Updating the resources
 ======================
 
-To minify Javascript, CSS and produce a suitable HTML file, for reducing network latency::
+To minify Javascript, CSS and produce a suitable HTML file, for reducing
+network latency::
 
     npm install
     grunt
 
-For modification, see all resources in the ``src`` directory.
+For modification, see all resources in the ``src`` directory.  If developing
+this further, you can use::
 
+    grunt watch
+
+Grunt will watch the given resources in the project for changes and recompile
+things accordingly.
 
 * Markers and legend imagery: replace the relevant image files in this same
   directory.
