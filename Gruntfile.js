@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        clean: ['build/', 'src/map.css'],
+        clean: ['build/*', 'src/map.css'],
         jshint: {
             src: ['src/map.js'],
         },

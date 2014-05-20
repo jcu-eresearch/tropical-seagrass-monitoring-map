@@ -17,8 +17,8 @@
 .legend {
   width: 80px;
   width: 200px \9;
-  background-color: rgba(255, 255, 255, 0.7);
-  background-color: #ffffff \9;
+  background: #fff;
+  background: rgba(255, 255, 255, 0.7);
   border-radius: 0.5em;
   margin: 1em;
   padding: 0.5em;
@@ -70,13 +70,16 @@
   max-height: 95%;
   max-width: 100%;
 }
+.no-textshadow .labels {
+  background: white;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0.1em;
+}
 .labels {
   white-space: nowrap;
   font-family: Arial, sans-serif;
   font-size: 12px;
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.85), -1px 1px 1px rgba(255, 255, 255, 0.85), 1px -1px 1px rgba(255, 255, 255, 0.85), -1px -1px 1px rgba(255, 255, 255, 0.85);
-  background-color: #ffffff \9;
-  padding: 0.2em \9;
 }
 .gm-style-iw {
   min-width: 200px;
