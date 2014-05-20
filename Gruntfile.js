@@ -60,7 +60,6 @@ module.exports = function(grunt) {
         'copy',
         'useminPrepare',
         'concat',
-        'cssmin',
         'uglify',
         'usemin'
     ]);
