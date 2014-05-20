@@ -1,0 +1,135 @@
+@label-font: Arial, sans-serif;
+@map-height: 280px;
+@map-height-desktop: 700px;
+@responsive-height: 0.85;
+
+// Items that cannot be selected by a user
+.unselectable() {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+// Fix Internet Explorer's odd max- dimension handling
+.auto-size {
+    width: auto;
+    height: auto;
+}
+
+#map-canvas {
+    width: 100%;
+    height: @map-height;
+    height: @map-height-desktop~"\9";
+    margin: 0;
+    padding: 0;
+}
+.map-widget {
+    width: 80px;
+    width: 200px~"\9";
+    background-color: rgba(255,255,255,0.7);
+    background-color: white~"\9";
+    border-radius: 0.5em;
+    margin: 1em;
+    padding: 0.5em;
+    index: 1;
+}
+.markers {
+    &:extend(.map-widget);
+    max-height: @map-height * 0.45;
+    max-height: @map-height-desktop~"\9";
+    max-height: 60%;
+    overflow: hidden;
+    overflow-y: auto;
+
+    h2 {
+        font-size: 95%;
+        color: black;
+        font-weight: bold;
+        font-family: @label-font;
+        margin: 0;
+    }
+    ul {
+        margin: 0.2em 0 !important;
+        padding: 0;
+        list-style: none outside none !important;
+    }
+    li {
+        .unselectable;
+        border-radius: 0.5em;
+
+        &:hover {
+            background-color: #aaa;
+            cursor: pointer;
+        }
+    }
+    img {
+        &:extend(.auto-size);
+        vertical-align: middle;
+        max-height: 20px;
+        margin-right: 0.5em; 
+    }
+}
+.legend {
+    &:extend(.map-widget);
+    height: 15%;
+    max-height: 100px;
+    text-align: center;
+
+    img {
+        &:extend(.auto-size);
+        max-height: 95%;
+        max-width: 100%;
+    }
+}
+.labels {
+    white-space: nowrap;
+    font-family: @label-font;
+    font-size: 12px;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.85), -1px 1px 1px rgba(255, 255, 255, 0.85), 1px -1px 1px rgba(255, 255, 255, 0.85), -1px -1px 1px rgba(255, 255, 255, 0.85);
+    background-color: white~"\9";
+    padding: 0.2em~"\9";
+}
+// Google Maps information window (popup)
+.gm-style-iw {
+    min-width: 200px;
+    max-width: 300px;
+    min-height: 200px;
+    img {
+        &:extend(.auto-size);
+        max-width: 100%;
+        max-height: 150px;
+    }
+}
+
+@media only screen and (max-height : 320px) or (min-width : 240px) {
+    .markers, .gm-style .gm-style-iw {
+        font-size: 70%;
+    }
+}
+@media only screen and (min-height : 420px) and (max-height : 639px) {
+    #map-canvas {
+        height: 420px * @responsive-height;
+    }
+}
+@media only screen and (min-height : 640px) and (max-height : 767px) {
+    #map-canvas {
+        height: 640px * @responsive-height;
+    }
+}
+@media only screen and (min-height : 768px) {
+    #map-canvas {
+        height: @map-height-desktop;
+    }
+    .markers h2 {
+        font-size: 1.3em;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .markers, .legend {
+        width: 768px * 0.25;
+    }
+}

@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        clean: ['build/'],
+        clean: ['build/', 'src/map.css'],
         jshint: {
             src: ['src/map.js'],
         },
@@ -22,10 +22,29 @@ module.exports = function(grunt) {
         },
         usemin: {
             html: 'build/index.html'
+        },
+        less: {
+            all: {
+                paths: ['src/map.less'],
+                files: {
+                    'src/map.css': 'src/map.less'
+                }
+            }
+        },
+        watch: {
+            all: {
+                files: ['src/*'],
+                tasks: ['default']
+            },
+            less: {
+                files: ['src/*.less'],
+                tasks: ['less']
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-usemin');
@@ -36,6 +55,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', [
         'clean',
+        'less',
         'jshint',
         'copy',
         'useminPrepare',
